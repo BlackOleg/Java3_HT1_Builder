@@ -1,9 +1,19 @@
 plugins {
     id 'java'
-}
+  }
 
 group 'ru.olegivanov'
 version '1.0-SNAPSHOT'
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.deprecation = true
+    }
+}
 
 repositories {
     mavenCentral()

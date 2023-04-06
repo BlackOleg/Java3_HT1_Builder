@@ -61,10 +61,10 @@ public class Person {
 
     @Override
     public String toString() {
-        return " Имя: " + this.name + ";\n" +
-                " Фамилия: " + this.surname + ";\n" +
-                " Возраст: " + this.age + ";\n" +
-                " Адрес: " + this.age + ";\n";
+        return "-Имя: " + this.name + "\n" +
+                "-Фамилия: " + this.surname + "\n" +
+                "-Возраст: " + this.age + "\n" +
+                "-Адрес: " + this.city + "\n";
     }
 
     @Override
@@ -73,8 +73,13 @@ public class Person {
     }
 
     public PersonBuilder newChildBuilder() {
-        //     return new Person(). new PersonBuilder();
-        return new PersonBuilder();
+        PersonBuilder child = new PersonBuilder();
+        if (this.name != null) child.setName(this.name);
+        if (this.surname != null) child.setSurname(this.surname);
+        //if (this.age > 0 && this.age <= 100) child.setAge(this.age);
+        if (this.city != null) child.setAddress(this.city);
+        return child;
+
     }
 
 
